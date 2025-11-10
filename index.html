@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./src/output.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js"></script>
+</head>
+
+<body class="bg-black text-white  font-sans">
+  <!-- layout -->
+  <div class="flex h-screen">
+    <!-- sidebar -->
+    <aside class="w-74 bg-black flex flex-col p-5 border-r border-zinc-800">
+      <h1 class="text-green-500 font-bold text-2xl mb-8">Spotify</h1>
+
+      <!-- create paylist -->
+      <div class="mt-2 space-y-4  ">
+        <div class=" bg-zinc-900 p-4 rounded-lg">
+          <p class="font-semibold mb-2">Create your first playlist</p>
+          <p class="text-sm text-gray-400 mb-3">It's easy, we'll help you</p>
+          <button class="bg-white text-black px-3 py-1 rounded-full font-bold text-sm">
+            Create playlist
+          </button>
+        </div>
+        <div class=" bg-zinc-900 p-4 rounded-lg">
+          <p class="font-semibold mb-2">Lets find some podcasts to follow </p>
+          <p class="text-sm text-gray-400 mb-3">we'll keep you updated on new episodes </p>
+          <button class="bg-white text-black px-3 py-1 rounded-full font-bold text-sm">
+            Browse podcasts
+          </button>
+        </div>
+      </div>
+      <div class="my-5 mx-auto">
+        <label
+          class="cursor-pointer bg-green-500 text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-green-400 ">
+          Choose music
+          <input type="file" name="" id="fileinput" webkitdirectory directory multiple hidden>
+        </label>
+
+      </div>
+      <!-- footer -->
+      <div class="text-xs text-gray-400 mt-4">
+        <p class="mb-2">
+          Legal Privacy Cookies
+        </p>
+        <button class="px-2 py-1  border border-gray-400 rounded-full text-sm">English</button>
+      </div>
+    </aside>
+
+    <!-- main section -->
+    <div class="flex-1 flex flex-col">
+      <header class="p-4 bg-black flex items-centre justify-between border-b border-zinc-800">
+        <div class="flex items-centre space-x-2 w-full max-w-lg bg-zinc-900 px-3 py-2 rounded-full ">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z" />
+          </svg>
+          <input type="text" name="" id="search" placeholder="what do you want to play?"
+            class="bg-transparent outline-none text-sm w-full">
+        </div>
+        <div class="space-x-3">
+          <button class="font-semibold">Sign up</button>
+          <button class="bg-white text-black px-4 py-2 rounded-full font-bold ">Log in</button>
+        </div>
+      </header>
+      <!-- main content  -->
+      <main class="flex-1 overflow-y-auto p-6 ">
+        <!-- trending songs -->
+        <section class=" mb-8">
+          <h2 class="text-2xl font-bold mb-4">Trending Songs</h2>
+          <div id="songsgrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <!-- songs will be apppended dynamically here -->
+
+          </div>
+        </section>
+
+        <!-- popular artist -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4">Popular artist</h2>
+          <div class="flex space-x-6 overflow-x-auto">
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/1.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/2.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/3.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/4.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/5.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+            <div class="w-38 shrink-0 text-center">
+              <img src="image/6.jpg" class="w-28 h-28 bg-red-500 mx-auto rounded-full object-cover mb-2" alt="">
+              <p class="text-sm">Sam </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <!-- player bar -->
+      <footer class="bg-zinc-900 p-3 flex items-center justify-between border-t border-zinc-800">
+        <div class="flex items-center space-x-3">
+          <img src="" id="currentcover" alt="cover" class="w-12 h-12 object-cover rounded ">
+
+          <div>
+            <p id="currenttitle" class="text-sm font-bold"></p>
+            <p id="currentartist" class="text-xs text-gray-400">--- </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center w-1/2">
+          <div class="flex items-center space-x-4 mb-2">
+            <button id="prevbtn" class="hover:text-gray-400">⏮</button>
+            <button id="playbtn" class="hover:text-gray-400 text-xl">▶</button>
+
+            <button id="nextbtn" class="hover:text-gray-400">⏭</button>
+
+          </div>
+          <input type="range" name="" id="progress" value="0" class="w-full accent-green-500" />
+        </div>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1" class="w-32 accent-green-500 ">
+      </footer>
+    </div>
+
+
+  </div>
+  <audio src="" id="audio"></audio>
+  <script>
+    const fileinput = document.getElementById("fileinput");
+    const songsgrid = document.getElementById("songsgrid");
+    const audio = document.getElementById("audio");
+    const playbtn = document.getElementById("playbtn");
+    const prevbtn = document.getElementById("prevbtn");
+    const nextbtn = document.getElementById("nextbtn");
+    const progress = document.getElementById("progress");
+    const volume = document.getElementById("volume");
+    const currentcover = document.getElementById("currentcover");
+    const currenttitle = document.getElementById("currenttitle");
+    const currentartist = document.getElementById("currentartist");
+    const search = document.getElementById("search");
+
+    let songs = [];
+    let currentindex = 0;
+    //load song into player
+    function loadsong(index) {
+      const song = songs[index];
+      if (!song) return;
+      audio.src = URL.createObjectURL(song.file)
+      currenttitle.textContent = song.title;
+      currentartist.textContent = song.artist;
+
+      const coversrc = song.cover && song.cover.trim() !== "" ? song.cover :
+        fallbackimage[index % fallbackimage.length];
+      currentcover.src = coversrc;
+      audio.play();
+      playbtn.textContent = "⏸";
+    }
+
+
+    //play/pause toggle
+    playbtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playbtn.textContent = "⏸"
+      } else {
+        audio.pause();
+        playbtn.textContent = "▶"
+      }
+    })
+
+    //next song
+    nextbtn.addEventListener("click", () => {
+      currentindex = (currentindex + 1) % songs.length;
+      loadsong(currentindex)
+    })
+
+    //previous song
+    prevbtn.addEventListener("click", () => {
+      currentindex = (currentindex - 1 + songs.length) % songs.length;
+      loadsong(currentindex)
+    })
+
+
+    //progress bar
+    audio.addEventListener("timeupdate", () => {
+      progress.value = (audio.currentTime / audio.duration) * 100 || 0;
+    })
+
+
+
+    // seek song
+    progress.addEventListener("input", () => {
+      audio.currentTime = (progress.value / 100 * audio.duration)
+    })
+
+
+
+    //volume control
+    volume.addEventListener("input", () => {
+      audio.volume = volume.value;
+    })
+
+
+
+    //search filter
+    search.addEventListener("input", () => {
+      const query = search.value.toLowerCase();
+      Array.from(songsgrid.children).forEach((card) => {
+        const title = card.dataset.title.toLowerCase();
+        card.style.display = title.includes(query) ? "block" : "none";
+      })
+    })
+
+
+
+    //some random fallback artist names
+    const randomartists = [
+      "john", "same", "sarah", "james"
+    ]
+    // helper:get a random artist name
+    function getrandomartist() {
+      return randomartists[Math.floor(Math.random() * randomartists.length)]
+    }
+
+    //load songs from user folder
+    fileinput.addEventListener("change", (e) => {
+      songs = [];
+      songsgrid.innerHTML = "";
+      const files = Array.from(e.target.files).filter((f) => f.type.startsWith("audio"))
+
+      files.forEach((file, idx) => {
+        let song = { file, title: file.name, artist: "", cover: "" };
+        new jsmediatags.Reader(file).read({
+          onSuccess: (tag) => {
+            if (tag.tags.title) song.title = tag.tags.title;
+            if (tag.tags.artist && tag.tags.artist.trim() !== "") {
+              song.artist = tag.tags.artist;//orignal artist name
+            } else {
+              song.artist = getrandomartist()//random artitst name
+            }
+            if (tag.tags.picture) {
+  let data = tag.tags.picture.data;
+  let format = tag.tags.picture.format;
+
+  let bytes = new Uint8Array(data);
+  let blob = new Blob([bytes], { type: format });
+  song.cover = URL.createObjectURL(blob); // ✅ create a real image URL
+  console.log("Extracted cover:", song.cover);
+}
+
+            rendersong(song, idx);
+          },
+          onError: () => {
+            //if error
+            song.artist = getrandomartist();
+            rendersong(song, idx)
+          }
+        })
+        songs.push(song);
+      })
+    })
+    //fallback image 
+    const fallbackimage = [
+      "image/trending/3 (1).jpg",
+      "image/trending/2 (1).jpg",
+      "image/trending/4 (1).jpg",
+      "image/trending/5 (1).jpg",
+      "image/trending/6 (1).jpg",
+
+    ]
+    //render song
+    function rendersong(song, idx) {
+  const card = document.createElement("div");
+  card.className = "bg-zinc-900 hover:bg-zinc-800 p-3 rounded-lg cursor-pointer";
+  card.dataset.title = song.title;
+
+  // pick cover image if exist
+  const coversrc = song.cover && song.cover.trim() !== "" 
+    ? song.cover 
+    : fallbackimage[idx % fallbackimage.length];
+
+  console.log("Using cover src:", coversrc);
+
+  card.innerHTML = `
+    <img src="${coversrc}" class="w-full h-32 object-cover rounded mb-2"/>
+    <p class="font-bold truncate">${song.title}</p>
+    <p class="text-xs text-gray-400 truncate">${song.artist}</p>
+  `;
+
+  card.addEventListener("click", () => {
+    currentindex = idx;
+    loadsong(currentindex);
+  });
+
+  songsgrid.appendChild(card);
+}
+
+  </script>
+  
+
+</body>
+
+</html>
